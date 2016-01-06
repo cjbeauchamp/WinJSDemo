@@ -1,118 +1,123 @@
 (function () {
     "use strict";
-    
+
     var app = WinJS.Application;
+    window.locationList = new WinJS.Binding.List([{"lang":"en-US","xmlns":"http://where.yahooapis.com/v1/schema.rng","yahoo":"http://www.yahooapis.com/v1/base.rng","uri":"http://where.yahooapis.com/v1/place/12770201","woeid":"12770201","placeTypeName":{"code":"11","content":"Zip Code"},"name":"29464","country":{"code":"US","type":"Country","woeid":"23424977","content":"United States"},"admin1":{"code":"US-SC","type":"State","woeid":"2347599","content":"South Carolina"},"admin2":{"code":"","type":"County","woeid":"12589809","content":"Charleston"},"admin3":null,"locality1":{"type":"Town","woeid":"2455374","content":"Mount Pleasant"},"locality2":null,"postal":{"type":"Zip Code","woeid":"12770201","content":"29464"},"centroid":{"latitude":"32.823521","longitude":"-79.856644"},"boundingBox":{"southWest":{"latitude":"32.751732","longitude":"-79.91687"},"northEast":{"latitude":"32.88866","longitude":"-79.80204"}},"areaRank":"1","popRank":"1","timezone":{"type":"Time Zone","woeid":"56043648","content":"America/New_York"}}]);
+    window.locationResultList = new WinJS.Binding.List([]);
+    window.currentForecast = new WinJS.Binding.List([]);
+
+    function saveLocation(e) {
+        var loc = window.locationResultList.getAt(e.detail.itemIndex);
+        window.locationList.push(loc);
+        updateUI(loc);
+    };
+
+    function getLocation(locationID) {
+
+        var index = 0;
+        var item = window.locationList.getItem(index);
+
+        while(item != null) {
+
+            if(item.data.woeid == locationID) {
+                return item.data;
+            }
+
+            item = window.locationList.getItem(++index);
+        }
+
+        return null;
+    }
+
     //SPLIT VIEW
     var mySplitView = window.mySplitView = {
         splitView: null,  
-        trailClicked: WinJS.UI.eventHandler(function (ev) {
-            var trailId = ev.currentTarget.dataset.trailId;
-            updateUI(allTrails[trailId]);
+        locationClicked: WinJS.UI.eventHandler(function (ev) {
+            var locationID = ev.currentTarget.winControl.locationID;
+            updateUI(getLocation(locationID));
         }),
-        homeClicked: WinJS.UI.eventHandler(function (ev) {
-            //add remove tags
+        addLocationClicked: WinJS.UI.eventHandler(function (ev) {
             document.getElementById("app").classList.add("show-home");
             document.getElementById("app").classList.remove("show-trail");
         }),
     };
     //END SPLIT VIEW
 
-function updateUI(trail) {
+    function updateUI(location) {
 
         //add remove tags
         document.getElementById("app").classList.add("show-trail");
         document.getElementById("app").classList.remove("show-home");
 
-        //update title
-        var titleElt = document.body.querySelector(".trail-title");
-        titleElt.textContent = trail.title;
+        //update data
+        document.body.querySelector(".loc-city").textContent = location.locality1.content;
+        document.body.querySelector(".loc-state").textContent = location.admin1.content;
+        document.body.querySelector(".loc-country").textContent = location.country.content;
 
-        //update location
-        var locationElt = document.body.querySelector(".trail-location");
-        locationElt.textContent = trail.location;
+        // load the data
+        var baseURI = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%3D"+encodeURIComponent(location.woeid)+"&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"; 
+        WinJS.xhr({ 
+            type: "get", 
+            url: baseURI, 
+        }).then(function (r) { 
+            var results = JSON.parse(r.responseText);
+            var data = results.query.results.channel;
 
-        //update description
-        var descriptionElt = document.body.querySelector(".trail-description");
-        descriptionElt.textContent = trail.description;
+            // do some quick data manipulation
+            data.item.condition.imageSrc = 'http://l.yimg.com/a/i/us/we/52/' + data.item.condition.code + '.gif';
 
-        //update Flipview
-        var flipViewElt = document.body.querySelector(".flipView");
-        //---------------------------------------JS #1-2: ------------------------------------------------------
-        flipViewElt.winControl.itemDataSource = new WinJS.Binding.List(trail.pictureArray).dataSource;
-        flipViewElt.winControl.forceLayout();//helps the browser render the flipView
+            window.currentForecast.splice(0, window.currentForecast.length);
+            for(var i=0;i<data.item.forecast.length;i++){ 
+                var item = data.item.forecast[i];
+                item.icon = 'http://l.yimg.com/a/i/us/we/52/' + item.code + '.gif'
+                item.tempString = 'High: ' + item.high + " / Low: " + item.low; 
+                window.currentForecast.push(item);
+            }
 
-        //---------------------------------------End JS #1-2----------------------------------------------------
+            WinJS.Binding.processAll(document.getElementById("location-ui"), data);
 
-        //update Rating
-        var ratingElt = document.body.querySelector(".rating");
-        ratingElt.winControl.averageRating = trail.averageRating;
-        ratingElt.winControl.userRating = 0;
+            console.log(data);
+        }); 
     }
 
-    var trailNameToID = {
-        "Snoqualmie Falls Trail": 0,
-        "Foster Island Trail": 1,
-        "Alki Trail": 2
-    }    
+    WinJS.Namespace.define("Search", { 
+        perform: function() {
 
-     var allTrails = [
-        {
-            title: "Snoqualmie Falls Trail", averageRating: 2, location: "Kirkland, WA", preview: "/images/SampleApp/Snoqualmie.jpg", pictureArray: [
-                { type: "item", picture: "/images/SampleApp/Snoqualmie.jpg" },
-                { type: "item", picture: "/images/SampleApp/Snoqualmie2.jpg" }
+            // reset the list
+            window.locationResultList.splice(0, window.locationResultList.length);
 
-            ], description: "Snoqualmie Falls is one of Washington state's most popular scenic attractions. More than 1.5 million visitors come to the Falls every year. At the falls, you will find a two-acre park, gift shop, observation deck, the Salish Lodge and the famous 270 foot waterfall."
-        },
-        {
-            title: "Foster Island Trail", averageRating: 4.5, location: "Bellevue, WA", preview: "/images/SampleApp/Foster.jpg", pictureArray: [
-                 { type: "item", picture: "/images/SampleApp/Foster.jpg" },
-                 { type: "item", picture: "/images/SampleApp/Foster2.jpg" }
+            // TODO: show a loader
 
-            ], description: "Foster Island Trail is a 2 mile loop trail located near Seattle, Washington that features a lake and is good for all skill levels. The trail offers a number of activity options and is accessible year-round."
-        },
-        {
-            title: "Alki Trail", averageRating: 1.5, location: "Seattle, WA", preview: "/images/SampleApp/Alki.jpg", pictureArray: [
-                 { type: "item", picture: "/images/SampleApp/Alki.jpg" },
-                 { type: "item", picture: "/images/SampleApp/Alki2.jpg" }
-            ], description: "The Alki Trail rides along the northern and eastern shore of West Seattle along Alki Avenue. Largely riding on a widened sidewalk, separated from traffic by a parking lane and curb, traffic on the trail is separated for bikes and walkers, providing a less stressful experience for walkers and bikers alike. "
+            var queryParam = document.getElementById('searchQuery').value;
+
+            var baseURI = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20geo.places%20where%20text%3D%22"+encodeURIComponent(queryParam)+"%22&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback="; 
+            WinJS.xhr({ 
+                type: "get", 
+                url: baseURI, 
+            }).then(function (r) { 
+                var results = JSON.parse(r.responseText);
+                var places = results.query.results.place;
+                for(var i=0; i<places.length; i++) {
+                    window.locationResultList.push(places[i]);
+                    console.log(places[i]);
+                }
+            }); 
+
         }
-    ]
-
-    //FLIP VIEW
-    var array = [
-            { type: "item", picture: "/images/SampleApp/Alki.jpg" }
-    ];
-    var bindingList = new WinJS.Binding.List(array);
-
-
-    var DefaultData = window.DefaultData = {
-        bindingList: bindingList,
-        array: array
-    }
-
-    // FLIP VIEW
-
-    //Binding Lists
-        //create an array of trails to turn the allTrails object into an array
-        var trailArray = [];
-
-        //add each trail in the allTrails object into the trailArray
-        for (var i = 0; i < allTrails.length ; ++i) { 
-            trailArray.push(allTrails[i]);
-        }
-           
-        //create a binding list out of the trailArray we just created 
-        var myList = window.myList = {
-            data: new WinJS.Binding.List(trailArray)
-        };
-
-    //END Binding Lists
+    });
 
     //processAll
     WinJS.UI.processAll().then(function () {
-      
+
+        document.querySelector('#basicListView').winControl.oniteminvoked = saveLocation;
+
+        document.getElementById('searchQuery').value = "charleston";
+        Search.perform();
+
         mySplitView.splitView = document.querySelector(".splitView").winControl;
         new WinJS.UI._WinKeyboard(mySplitView.splitView.paneElement);
     });
+
     app.start();
+
 })();
