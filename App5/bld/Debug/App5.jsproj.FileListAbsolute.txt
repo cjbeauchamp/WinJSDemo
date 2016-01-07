@@ -1,0 +1,16 @@
+c:\users\chris\documents\visual studio 2015\Projects\App5\App5\bin\Debug\ReverseMap\resources.pri
+c:\users\chris\documents\visual studio 2015\Projects\App5\App5\bin\Debug\AppxManifest.xml
+c:\users\chris\documents\visual studio 2015\Projects\App5\App5\bin\Debug\App5.build.appxrecipe
+c:\users\chris\documents\visual studio 2015\Projects\App5\App5\bld\Debug\ResourceHandlingTask.state
+c:\users\chris\documents\visual studio 2015\Projects\App5\App5\bld\Debug\priconfig.xml
+c:\users\chris\documents\visual studio 2015\Projects\App5\App5\bld\Debug\priconfig.xml.intermediate
+c:\users\chris\documents\visual studio 2015\Projects\App5\App5\bld\Debug\layout.resfiles
+c:\users\chris\documents\visual studio 2015\Projects\App5\App5\bld\Debug\layout.resfiles.intermediate
+c:\users\chris\documents\visual studio 2015\Projects\App5\App5\bld\Debug\resources.resfiles
+c:\users\chris\documents\visual studio 2015\Projects\App5\App5\bld\Debug\resources.resfiles.intermediate
+c:\users\chris\documents\visual studio 2015\Projects\App5\App5\bld\Debug\pri.resfiles
+c:\users\chris\documents\visual studio 2015\Projects\App5\App5\bld\Debug\pri.resfiles.intermediate
+c:\users\chris\documents\visual studio 2015\Projects\App5\App5\bld\Debug\qualifiers.txt
+c:\users\chris\documents\visual studio 2015\Projects\App5\App5\bld\Debug\qualifiers.txt.intermediate
+c:\users\chris\documents\visual studio 2015\Projects\App5\App5\bld\Debug\MultipleQualifiersPerDimensionFound.txt
+c:\users\chris\documents\visual studio 2015\Projects\App5\App5\bld\Debug\ProjectArchitectures.txt

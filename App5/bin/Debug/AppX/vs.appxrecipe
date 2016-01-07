@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>DESKTOP-1S3H902</Machine>
+    <WindowsUser>chris</WindowsUser>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetOsVersion>10.0</TargetOsVersion>
+    <TargetOsDescription>Windows 10.0</TargetOsDescription>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>bf5643d1-46a2-4c84-ad31-7331a70ed197</PackageIdentityName>
+    <IntermediateOutputPath>C:\Users\chris\Desktop\WinJSDemo\App5\bld\Debug\</IntermediateOutputPath>
+    <RegisteredManifestChecksum>9356E59FA418F17F4A573B64D22C64B94DA07A3D314A755E7134AF1FE7A06948</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>bf5643d1-46a2-4c84-ad31-7331a70ed197_1.0.0.0_neutral__p2wxv0ry6mv8g</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>bf5643d1-46a2-4c84-ad31-7331a70ed197_p2wxv0ry6mv8g!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>bf5643d1-46a2-4c84-ad31-7331a70ed197</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=chris</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\chris\Desktop\WinJSDemo\App5\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2016-01-07T05:35:07.232</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\chris\Desktop\WinJSDemo\App5\css\demo.css">
+      <PackagePath>css\demo.css</PackagePath>
+      <Modified>2016-01-07T05:19:23.013</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\chris\Desktop\WinJSDemo\App5\css\main.css">
+      <PackagePath>css\main.css</PackagePath>
+      <Modified>2016-01-07T05:19:39.060</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\chris\Desktop\WinJSDemo\App5\WinJS\css\ui-dark.css">
+      <PackagePath>WinJS\css\ui-dark.css</PackagePath>
+      <Modified>2015-10-11T05:09:40.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\chris\Desktop\WinJSDemo\App5\WinJS\css\ui-light.css">
+      <PackagePath>WinJS\css\ui-light.css</PackagePath>
+      <Modified>2015-10-11T05:09:40.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\chris\Desktop\WinJSDemo\App5\index.html">
+      <PackagePath>index.html</PackagePath>
+      <Modified>2016-01-07T05:19:55.747</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\chris\Desktop\WinJSDemo\App5\images\LockScreenLogo.scale-200.png">
+      <PackagePath>images\LockScreenLogo.scale-200.png</PackagePath>
+      <Modified>2015-10-11T05:09:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\chris\Desktop\WinJSDemo\App5\images\SplashScreen.scale-200.png">
+      <PackagePath>images\SplashScreen.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-10-11T05:09:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\chris\Desktop\WinJSDemo\App5\images\Square150x150Logo.scale-200.png">
+      <PackagePath>images\Square150x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-10-11T05:09:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\chris\Desktop\WinJSDemo\App5\images\Square44x44Logo.scale-200.png">
+      <PackagePath>images\Square44x44Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-10-11T05:09:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\chris\Desktop\WinJSDemo\App5\images\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <PackagePath>images\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-10-11T05:09:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\chris\Desktop\WinJSDemo\App5\images\StoreLogo.png">
+      <PackagePath>images\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-10-11T05:09:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\chris\Desktop\WinJSDemo\App5\images\Wide310x150Logo.scale-200.png">
+      <PackagePath>images\Wide310x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-10-11T05:09:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\chris\Desktop\WinJSDemo\App5\js\main.js">
+      <PackagePath>js\main.js</PackagePath>
+      <Modified>2016-01-07T05:18:23.575</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\chris\Desktop\WinJSDemo\App5\WinJS\js\en-US\ui.strings.js">
+      <PackagePath>WinJS\js\en-US\ui.strings.js</PackagePath>
+      <Modified>2015-10-11T05:09:40.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\chris\Desktop\WinJSDemo\App5\WinJS\js\base.js">
+      <PackagePath>WinJS\js\base.js</PackagePath>
+      <Modified>2015-10-11T05:09:40.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\chris\Desktop\WinJSDemo\App5\WinJS\js\ui.js">
+      <PackagePath>WinJS\js\ui.js</PackagePath>
+      <Modified>2015-10-11T05:09:40.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\chris\Desktop\WinJSDemo\App5\WinJS\fonts\Symbols.ttf">
+      <PackagePath>WinJS\fonts\Symbols.ttf</PackagePath>
+      <Modified>2015-10-11T05:09:40.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\chris\Desktop\WinJSDemo\App5\bin\Debug\ReverseMap\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2016-01-07T05:29:28.638</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

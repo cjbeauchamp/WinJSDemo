@@ -1,0 +1,32 @@
+C:\Users\chris\Documents\Visual Studio 2015\Projects\App5\App5\bin\Debug\ReverseMap\resources.pri
+C:\Users\chris\Documents\Visual Studio 2015\Projects\App5\App5\bin\Debug\AppxManifest.xml
+C:\Users\chris\Documents\Visual Studio 2015\Projects\App5\App5\bin\Debug\WinJSDemo.build.appxrecipe
+C:\Users\chris\Documents\Visual Studio 2015\Projects\App5\App5\bld\Debug\ResourceHandlingTask.state
+C:\Users\chris\Documents\Visual Studio 2015\Projects\App5\App5\bld\Debug\priconfig.xml
+C:\Users\chris\Documents\Visual Studio 2015\Projects\App5\App5\bld\Debug\priconfig.xml.intermediate
+C:\Users\chris\Documents\Visual Studio 2015\Projects\App5\App5\bld\Debug\layout.resfiles
+C:\Users\chris\Documents\Visual Studio 2015\Projects\App5\App5\bld\Debug\layout.resfiles.intermediate
+C:\Users\chris\Documents\Visual Studio 2015\Projects\App5\App5\bld\Debug\resources.resfiles
+C:\Users\chris\Documents\Visual Studio 2015\Projects\App5\App5\bld\Debug\resources.resfiles.intermediate
+C:\Users\chris\Documents\Visual Studio 2015\Projects\App5\App5\bld\Debug\pri.resfiles
+C:\Users\chris\Documents\Visual Studio 2015\Projects\App5\App5\bld\Debug\pri.resfiles.intermediate
+C:\Users\chris\Documents\Visual Studio 2015\Projects\App5\App5\bld\Debug\qualifiers.txt
+C:\Users\chris\Documents\Visual Studio 2015\Projects\App5\App5\bld\Debug\qualifiers.txt.intermediate
+C:\Users\chris\Documents\Visual Studio 2015\Projects\App5\App5\bld\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\chris\Documents\Visual Studio 2015\Projects\App5\App5\bld\Debug\ProjectArchitectures.txt
+C:\Users\chris\Desktop\WinJSDemo\App5\bin\Debug\ReverseMap\resources.pri
+C:\Users\chris\Desktop\WinJSDemo\App5\bin\Debug\AppxManifest.xml
+C:\Users\chris\Desktop\WinJSDemo\App5\bin\Debug\WinJSDemo.build.appxrecipe
+C:\Users\chris\Desktop\WinJSDemo\App5\bld\Debug\ResourceHandlingTask.state
+C:\Users\chris\Desktop\WinJSDemo\App5\bld\Debug\priconfig.xml
+C:\Users\chris\Desktop\WinJSDemo\App5\bld\Debug\priconfig.xml.intermediate
+C:\Users\chris\Desktop\WinJSDemo\App5\bld\Debug\layout.resfiles
+C:\Users\chris\Desktop\WinJSDemo\App5\bld\Debug\layout.resfiles.intermediate
+C:\Users\chris\Desktop\WinJSDemo\App5\bld\Debug\resources.resfiles
+C:\Users\chris\Desktop\WinJSDemo\App5\bld\Debug\resources.resfiles.intermediate
+C:\Users\chris\Desktop\WinJSDemo\App5\bld\Debug\pri.resfiles
+C:\Users\chris\Desktop\WinJSDemo\App5\bld\Debug\pri.resfiles.intermediate
+C:\Users\chris\Desktop\WinJSDemo\App5\bld\Debug\qualifiers.txt
+C:\Users\chris\Desktop\WinJSDemo\App5\bld\Debug\qualifiers.txt.intermediate
+C:\Users\chris\Desktop\WinJSDemo\App5\bld\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\chris\Desktop\WinJSDemo\App5\bld\Debug\ProjectArchitectures.txt

@@ -1,0 +1,121 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Windows Demo App</title>
+
+    <link href="WinJS/css/ui-dark.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/demo.css" rel="stylesheet" />
+
+    <script src="WinJS/js/base.js"></script>
+    <script src="WinJS/js/ui.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body class="win-type-body">
+    <div id="app" class="show-home win-type-body">
+
+        <!-- SPLIT VIEW -->
+        <div class="splitView" data-win-control="WinJS.UI.SplitView">
+
+            <!-- Menu -->
+            <div>
+                <div class="header">
+                    <button class="win-splitviewpanetoggle"
+                            data-win-control="WinJS.UI.SplitViewPaneToggle"
+                            data-win-options="{ splitView: select('.splitView') }"></button>
+                    <div class="title"><h3 class="win-h3">Menu</h3></div>
+                </div>
+                <div class="nav-commands">
+                    <div data-win-control="WinJS.UI.SplitViewCommand"
+                         data-win-options="{ label: 'Add Location', icon: 'add', oninvoked: mySplitView.addLocationClicked}">
+                    </div>
+
+                    <div data-win-control="WinJS.UI.Repeater"
+                         data-win-options="{data: locationList}">
+
+                        <div data-win-bind="winControl.label:locality1.content;winControl.locationID:woeid;"
+                             data-win-control="WinJS.UI.SplitViewCommand"
+                             data-win-options="{icon: 'mappin', oninvoked: mySplitView.locationClicked}">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Location UI -->
+            <div class="home-ui" style="text-align:left;padding:30px;">
+
+                <div style="width:100%;">
+                    <h1 style="font-weight:normal;font-size:2em;margin-top:0;">Add A Location</h1>
+
+                    <div style="position:relative;height:70px;width:95%;">
+                        <input style="position:absolute;left:0;top:0;border:0;border-bottom:1px solid #eee;background:none;width:100%;bottom:0;padding:0;font-size:1.5em;color:#fff;" type="text" id="searchQuery" name="q" placeholder="Enter a City/Zip" />
+                        <button style="background:none;color:#fa6800;border:0;position:absolute;right:0;top:0;bottom:0;width:120px;text-align:center;font-size:1.5em;" id="searchButton" onclick="Search.perform(event)">Search</button>
+                    </div>
+
+                    <div id="mediumListIconTextTemplate" data-win-control="WinJS.Binding.Template">
+                        <div>
+                            <span class="city" data-win-bind="innerText: locality1.content"></span>
+                            <span class="state" data-win-bind="innerText: admin1.content"></span>
+                        </div>
+                        <div class="country" data-win-bind="innerText: country.content"></div>
+                    </div>
+
+                    <div id="basicListView" style="width:100%;" data-win-control="WinJS.UI.ListView"
+                         data-win-options="{itemDataSource: locationResultList.dataSource,itemTemplate: select('#mediumListIconTextTemplate'), oniteminvoked:saveLocation, layout : {type: WinJS.UI.ListLayout}}">
+                    </div>
+                </div>
+            </div>
+            <!-- END Add Location UI-->
+            <!-- Location UI -->
+            <div class="location-ui" id="location-ui" style="text-align:left;padding:30px;">
+
+                <h1 style="font-weight:normal;font-size:2em;margin-top:0;">
+                    <div>
+                        <span class="loc-city"></span>
+                        <span class="loc-state"></span>
+                    </div>
+                    <div class="loc-country"></div>
+                </h1>
+                <div>Last updated: <span data-win-bind="innerHTML:lastBuildDate"></span></div>
+
+                <h2>Current Conditions</h2>
+                <div>
+                    <img data-win-bind="src:item.condition.imageSrc" />
+                </div>
+                <div data-win-bind="innerHTML:item.condition.text"></div>
+                <div>
+                    <span data-win-bind="innerHTML:item.condition.temp"></span>
+                    <span data-win-bind="innerHTML:units.temperature"></span>
+                </div>
+
+                <h2>Forecast</h2>
+
+                <div data-win-control="WinJS.UI.Repeater"
+                     data-win-options="{data: currentForecast}">
+
+                    <div class="forecast" style="width:150px;margin:10px;display:inline-block;border:1px solid #ccc;">
+                        <div class="day" style="text-align:center;font-weight:bold;margin:8px 0;" data-win-bind="innerHTML:day"></div>
+                        <div class="icon" style="text-align:center;margin:20px 0;">
+                            <img data-win-bind="src:icon" />
+                        </div>
+                        <div class="description" style="text-align:center;" data-win-bind="innerHTML:text"></div>
+                        <div class="temperatures" style="text-align:center;margin:10px 0;" data-win-bind="innerHTML:tempString"></div>
+                    </div>
+
+                </div>
+
+
+                <div>
+                    <div class="day1-day"></div>
+                </div>
+
+
+            </div>
+            <!-- END Location UI-->
+        </div>
+    </div>
+
+</body>
+</html>
