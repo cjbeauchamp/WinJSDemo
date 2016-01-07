@@ -111,8 +111,8 @@
 
         document.querySelector('#basicListView').winControl.oniteminvoked = saveLocation;
 
-        document.getElementById('searchQuery').value = "charleston";
-        Search.perform();
+        // document.getElementById('searchQuery').value = "charleston";
+        // Search.perform();
 
         mySplitView.splitView = document.querySelector(".splitView").winControl;
         new WinJS.UI._WinKeyboard(mySplitView.splitView.paneElement);
