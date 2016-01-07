@@ -2,7 +2,7 @@
     "use strict";
 
     var app = WinJS.Application;
-    window.locationList = new WinJS.Binding.List([{ "lang": "en-US", "xmlns": "http://where.yahooapis.com/v1/schema.rng", "yahoo": "http://www.yahooapis.com/v1/base.rng", "uri": "http://where.yahooapis.com/v1/place/12770201", "woeid": "12770201", "placeTypeName": { "code": "11", "content": "Zip Code" }, "name": "29464", "country": { "code": "US", "type": "Country", "woeid": "23424977", "content": "United States" }, "admin1": { "code": "US-SC", "type": "State", "woeid": "2347599", "content": "South Carolina" }, "admin2": { "code": "", "type": "County", "woeid": "12589809", "content": "Charleston" }, "admin3": null, "locality1": { "type": "Town", "woeid": "2455374", "content": "Mount Pleasant" }, "locality2": null, "postal": { "type": "Zip Code", "woeid": "12770201", "content": "29464" }, "centroid": { "latitude": "32.823521", "longitude": "-79.856644" }, "boundingBox": { "southWest": { "latitude": "32.751732", "longitude": "-79.91687" }, "northEast": { "latitude": "32.88866", "longitude": "-79.80204" } }, "areaRank": "1", "popRank": "1", "timezone": { "type": "Time Zone", "woeid": "56043648", "content": "America/New_York" } }]);
+    window.locationList = new WinJS.Binding.List([]);
     window.locationResultList = new WinJS.Binding.List([]);
     window.currentForecast = new WinJS.Binding.List([]);
 
@@ -29,7 +29,6 @@
         return null;
     }
 
-    //SPLIT VIEW
     var mySplitView = window.mySplitView = {
         splitView: null,
         locationClicked: WinJS.UI.eventHandler(function (ev) {
@@ -38,15 +37,14 @@
         }),
         addLocationClicked: WinJS.UI.eventHandler(function (ev) {
             document.getElementById("app").classList.add("show-home");
-            document.getElementById("app").classList.remove("show-trail");
+            document.getElementById("app").classList.remove("show-location");
         }),
     };
-    //END SPLIT VIEW
 
     function updateUI(location) {
 
         //add remove tags
-        document.getElementById("app").classList.add("show-trail");
+        document.getElementById("app").classList.add("show-location");
         document.getElementById("app").classList.remove("show-home");
 
         //update data
@@ -75,8 +73,6 @@
             }
 
             WinJS.Binding.processAll(document.getElementById("location-ui"), data);
-
-            console.log(data);
         });
     }
 
@@ -99,7 +95,6 @@
                 var places = results.query.results.place;
                 for (var i = 0; i < places.length; i++) {
                     window.locationResultList.push(places[i]);
-                    console.log(places[i]);
                 }
             });
 
@@ -109,10 +104,7 @@
     //processAll
     WinJS.UI.processAll().then(function () {
 
-        document.querySelector('#basicListView').winControl.oniteminvoked = saveLocation;
-
-        // document.getElementById('searchQuery').value = "charleston";
-        // Search.perform();
+        document.querySelector('#searchResultList').winControl.oniteminvoked = saveLocation;
 
         mySplitView.splitView = document.querySelector(".splitView").winControl;
         new WinJS.UI._WinKeyboard(mySplitView.splitView.paneElement);

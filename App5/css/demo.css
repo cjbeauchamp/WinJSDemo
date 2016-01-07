@@ -1,29 +1,34 @@
-﻿
-/* CSS applied to the ListViews in this sample */
-#basicListView
+﻿.show-location .home-ui {
+    display: none;
+}
+
+.show-home .location-ui {
+    display: none;
+}
+
+#searchResultList
 {
     height: 100%;
-    /*still may be problem with height...overwrote it here*/
 }
 
-#basicListView .win-container {
-    background: #0f0;
-    margin-left:0;
-    margin-right:-10px;
-}
+    #searchResultList .win-container {
+        background: #0f0;
+        margin-left:0;
+        margin-right:-10px;
+    }
 
-#basicListView .win-item {
-    background: none;
-    padding: 30px;
-    margin:0;
-    font-size: 2em;
-    color: #999;
-}
+    #searchResultList .win-item {
+        background: none;
+        padding: 30px;
+        margin:0;
+        font-size: 2em;
+        color: #999;
+    }
 
-#basicListView .win-item .city {
-    color: #fff;
-}
+        #searchResultList .win-item .city {
+            color: #fff;
+        }
 
-#basicListView .win-item .country {
-    font-size: 0.6em;
-}
+        #searchResultList .win-item .country {
+            font-size: 0.6em;
+        }

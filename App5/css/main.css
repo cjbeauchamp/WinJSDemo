@@ -81,16 +81,6 @@ button.win-splitview-button:after {
     content: "\E700";
 }
 
-
-/*Home vs trail controls*/
-.show-trail .home-ui {
-    display: none;
-}
-
-.show-home .location-ui {
-    display: none;
-}
-
 .home-ui {
     width: 100%;
     height: 100%;
