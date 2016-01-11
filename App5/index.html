@@ -42,14 +42,14 @@
             </div>
 
             <!-- Add Location UI -->
-            <div class="home-ui" id="home-ui" style="text-align:left;padding:30px;">
+            <div class="home-ui" id="home-ui">
 
-                <div style="width:100%;">
-                    <h1 style="font-weight:normal;font-size:2em;margin-top:0;">Add A Location</h1>
+                <div>
+                    <h1>Add A Location</h1>
 
-                    <div style="position:relative;height:70px;width:95%;">
-                        <input style="position:absolute;left:0;top:0;border:0;border-bottom:1px solid #eee;background:none;width:100%;bottom:0;padding:0;font-size:1.5em;color:#fff;" type="text" id="searchQuery" name="q" placeholder="Enter a City/Zip" />
-                        <button style="background:none;color:#fa6800;border:0;position:absolute;right:0;top:0;bottom:0;width:120px;text-align:center;font-size:1.5em;" id="searchButton" onclick="Search.perform(event)">Search</button>
+                    <div id="search-container">
+                        <input type="text" id="searchQuery" name="q" placeholder="Enter a City/Zip" />
+                        <button id="searchButton" onclick="Search.perform(event)">Search</button>
                     </div>
 
                     <div id="mediumListIconTextTemplate" data-win-control="WinJS.Binding.Template">
@@ -67,9 +67,9 @@
             </div>
             <!-- END Add Location UI-->
             <!-- Location UI -->
-            <div class="location-ui" id="location-ui" style="text-align:left;padding:30px;">
+            <div class="location-ui" id="location-ui">
 
-                <h1 style="font-weight:normal;font-size:2em;margin-top:0;">
+                <h1>
                     <div>
                         <span class="loc-city"></span>
                         <span class="loc-state"></span>
@@ -93,13 +93,13 @@
                 <div data-win-control="WinJS.UI.Repeater"
                      data-win-options="{data: currentForecast}">
 
-                    <div class="forecast" style="width:150px;margin:10px;display:inline-block;border:1px solid #ccc;">
-                        <div class="day" style="text-align:center;font-weight:bold;margin:8px 0;" data-win-bind="innerHTML:day"></div>
-                        <div class="icon" style="text-align:center;margin:20px 0;">
+                    <div class="forecast">
+                        <div class="day" data-win-bind="innerHTML:day"></div>
+                        <div class="icon">
                             <img data-win-bind="src:icon" />
                         </div>
-                        <div class="description" style="text-align:center;" data-win-bind="innerHTML:text"></div>
-                        <div class="temperatures" style="text-align:center;margin:10px 0;" data-win-bind="innerHTML:tempString"></div>
+                        <div class="description" data-win-bind="innerHTML:text"></div>
+                        <div class="temperatures" data-win-bind="innerHTML:tempString"></div>
                     </div>
 
                 </div>

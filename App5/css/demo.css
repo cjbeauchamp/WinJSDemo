@@ -1,6 +1,72 @@
 ﻿.show-location .home-ui {
     display: none;
 }
+    .show-location .home-ui #search-container {
+        position:relative;
+        height:70px;
+        width:95%;
+    }
+
+    .show-location .home-ui input {
+        position:absolute;
+        left:0;
+        top:0;
+        border:0;
+        border-bottom:1px solid #eee;
+        background:none;
+        width:100%;
+        bottom:0;
+        padding:0;
+        font-size:1.5em;
+        color:#fff;
+    }
+
+    .show-location .home-ui button {
+        background:none;
+        color:#fa6800;
+        border:0;
+        position:absolute;
+        right:0;
+        top:0;
+        bottom:0;
+        width:120px;
+        text-align:center;
+        font-size:1.5em;
+    }
+
+#location-ui {
+    text-align:left;
+    padding:30px;
+}
+
+    #location-ui .forecast {
+        width:150px;
+        margin:10px;
+        display:inline-block;
+        border:1px solid #ccc;
+    }
+
+        #location-ui .forecast .day {
+            text-align:center;
+            font-weight:bold;
+            margin:8px 0;
+        }
+
+        #location-ui .forecast .icon {
+            text-align:center;
+            margin:20px 0;
+        }
+
+        #location-ui .forecast .temperatures {
+            text-align:center;
+            margin:10px 0;
+        }
+
+        #location-ui .forecast .description {
+            text-align:center;
+        }
+
+
 
 .show-home .location-ui {
     display: none;

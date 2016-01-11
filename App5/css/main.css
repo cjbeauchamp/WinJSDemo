@@ -87,4 +87,12 @@ button.win-splitview-button:after {
     text-align: center;
     display: block;
     overflow: auto;
+    text-align:left;
+    padding:30px;
+}
+
+h1 {
+    font-weight:normal;
+    font-size:2em;
+    margin-top:0;
 }
