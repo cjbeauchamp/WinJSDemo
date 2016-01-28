@@ -23,6 +23,9 @@
         // when our 'home' button is tapped (i.e. the '+' button)
         // show the home/add location screen
         addLocationClicked: WinJS.UI.eventHandler(function (ev) {
+
+            Crittercism.leaveBreadcrumb("Showing add location screen");
+
             document.getElementById("app").classList.add("show-home");
             document.getElementById("app").classList.remove("show-location");
         }),
@@ -44,6 +47,8 @@
             appId: 'appId', // Example: 47cc67093475061e3d95369d
             appVersion: '1.0' // Developer-provided application version
         });
+
+        Crittercism.setUsername("user1234");
     };
 
     // complete the app setup in WinJS
@@ -70,6 +75,8 @@
 
             // set up our URL
             var baseURI = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20geo.places%20where%20text%3D%22" + encodeURIComponent(queryParam) + "%22&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=";
+
+            Crittercism.leaveBreadcrumb("Performing a search: " + queryParam);
             
             // execute the XHR request
             WinJS.xhr({
@@ -89,6 +96,9 @@
                     for (var i = 0; i < places.length; i++) {
                         window.locationResultList.push(places[i]);
                     }
+
+                    Crittercism.leaveBreadcrumb("Search completed: " + results.length + " results");
+
                 } catch(e) {
                   Crittercism.logHandledException(e);
                 }
@@ -100,6 +110,8 @@
     /* Method Definitions */
 
     function saveLocation(e) {
+        Crittercism.leaveBreadcrumb("Saving location");
+
         var loc = window.locationResultList.getAt(e.detail.itemIndex);
         window.locationList.push(loc);
         updateUI(loc);
@@ -125,6 +137,8 @@
 
     function updateUI(location) {
 
+        Crittercism.leaveBreadcrumb("User displaying location: " + location.woeid);
+
         //add remove tags
         document.getElementById("app").classList.add("show-location");
         document.getElementById("app").classList.remove("show-home");
@@ -140,6 +154,8 @@
             type: "get",
             url: baseURI,
         }).then(function (r) {
+
+            Crittercism.leaveBreadcrumb("Location response loaded");
 
             try {            
                 var results = JSON.parse(r.responseText);
@@ -157,6 +173,9 @@
                 }
 
                 WinJS.Binding.processAll(document.getElementById("location-ui"), data);
+
+                Crittercism.leaveBreadcrumb("Location UI loaded");
+
             } catch(e) {
               Crittercism.logHandledException(e);
             }
